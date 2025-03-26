@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUE GPA Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <div class="background-animation"></div>
+    <div class="container animate__animated animate__fadeIn">
+        <div class="header">
+            <h1>FUE GPA Calculator</h1>
+            <button id="theme-toggle" onclick="toggleTheme()">
+                <span class="theme-icon">☀️</span>
+            </button>
+        </div>
+
+        <!-- Semester GPA Section -->
+        <div class="section">
+            <div class="input-group">
+                <input type="number" id="num-subjects" min="1" placeholder="Number of Subjects">
+                <button onclick="generateSubjectInputs()">Add</button>
+            </div>
+            <div id="subjects-input"></div>
+            <div class="button-group">
+                <button onclick="calculateSemesterGPA()" id="calc-semester-btn" style="display: none;">Calculate</button>
+                <button onclick="resetSemester()" class="reset-btn">Reset</button>
+            </div>
+            <div id="semester-result" class="result"></div>
+        </div>
+
+        <!-- CGPA Section -->
+        <div class="section">
+            <div class="input-group">
+                <input type="number" id="num-semesters" min="0" placeholder="Previous Semesters">
+                <button onclick="generateSemesterInputs()">Add</button>
+            </div>
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" id="include-current" checked>
+                    Include Current Semester
+                </label>
+                <p class="note">Check this to include the current semester’s GPA (calculated above) in your CGPA.</p>
+            </div>
+            <div id="semesters-input"></div>
+            <div class="button-group">
+                <button onclick="calculateCGPA()" id="calc-cgpa-btn" style="display: none;">Calculate</button>
+                <button onclick="resetCGPA()" class="reset-btn">Reset</button>
+            </div>
+            <div id="cgpa-result" class="result"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Theme toggle functionality
+        const toggleTheme = () => {
+            const body = document.body;
+            const themeToggle = document.getElementById('theme-toggle');
+            if (body.classList.contains('dark-theme')) {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+                themeToggle.innerHTML = '<span class="theme-icon">🌙</span>';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+                themeToggle.innerHTML = '<span class="theme-icon">☀️</span>';
+                localStorage.setItem('theme', 'dark');
+            }
+        };
+
+        // Apply saved theme on page load
+        const savedTheme = localStorage.getItem('theme');
+        const body = document.body;
+        const themeToggle = document.getElementById('theme-toggle');
+        if (savedTheme === 'light') {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+            themeToggle.innerHTML = '<span class="theme-icon">🌙</span>';
+        } else {
+            body.classList.add('dark-theme');
+            themeToggle.innerHTML = '<span class="theme-icon">☀️</span>';
+        }
+    </script>
+</body>
+</html>
