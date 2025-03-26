@@ -20,6 +20,7 @@
 
         <!-- Semester GPA Section -->
         <div class="section">
+            <h2>Add Subjects</h2>
             <div class="input-group">
                 <input type="number" id="num-subjects" min="1" placeholder="Number of Subjects">
                 <button onclick="generateSubjectInputs()">Add</button>
@@ -34,6 +35,7 @@
 
         <!-- CGPA Section -->
         <div class="section">
+            <h2>Add Semesters</h2>
             <div class="input-group">
                 <input type="number" id="num-semesters" min="0" placeholder="Previous Semesters">
                 <button onclick="generateSemesterInputs()">Add</button>
@@ -43,7 +45,7 @@
                     <input type="checkbox" id="include-current" checked>
                     Include Current Semester
                 </label>
-                <p class="note">Check this to include the current semester’s GPA (calculated above) in your CGPA.</p>
+                <p class="note">Check this to include the current semester’s GPA in your CGPA. For example, to calculate 7 semesters total, check this box and enter 6 previous semesters.</p>
             </div>
             <div id="semesters-input"></div>
             <div class="button-group">
