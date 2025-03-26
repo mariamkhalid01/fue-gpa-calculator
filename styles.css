@@ -46,6 +46,13 @@ body.dark-theme h1 {
     color: #ff3333; /* Vibrant red for FUE theme */
 }
 
+body.dark-theme h2 {
+    color: #ff3333;
+    font-size: 1.4em;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
 body.dark-theme input[type="number"] {
     background: rgba(255, 255, 255, 0.1);
     color: #e0e0e0;
@@ -124,6 +131,13 @@ body.light-theme .container {
 
 body.light-theme h1 {
     color: #ff3333;
+}
+
+body.light-theme h2 {
+    color: #ff3333;
+    font-size: 1.4em;
+    font-weight: 500;
+    margin-bottom: 10px;
 }
 
 body.light-theme input[type="number"] {
@@ -227,7 +241,7 @@ body.dark-theme #theme-toggle {
 }
 
 body.dark-theme #theme-toggle:hover {
-    background: rgba(255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 body.light-theme #theme-toggle {
@@ -367,5 +381,9 @@ th {
 
     h1 {
         font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.2em;
     }
 }
